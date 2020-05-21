@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Users</h1>
+<table id="users_table">
+    <thead>
+    <tr>
+        <th>userId</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>phone</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>userId</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>phone</th>
+    </tr>
+    </tfoot>
+</table>
+
+@section Scripts
+{
+    <script>
+        $('#users_table').DataTable( {
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/api/users",
+            "columns": [
+                { "data": "userId" },
+                { "data": "firstName" },
+                { "data": "lastName" },
+                {"data": "phone"}]
+        } );
+    </script>
+}
